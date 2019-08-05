@@ -1,17 +1,19 @@
 #!/usr/bin/bash
 
-apps=("impressivebathandkitchen" "realsiter" "weby-tech")
+export GOROOT=/root/go
+
+apps=("impressivebathandkitchen" "realsiter")
+
 
 for i in "${apps[@]}"
 do
-	cd /root/${i}/prisma && docker-compose up -d
-	cd /root/${i}/prisma && prisma deploy
-	cd /root/${i}/prisma && yarn
-	cd /root/${i}/prisma &&  pm2 start pm2.json
-
-	cd /root/${i}/client && yarn
-	cd /root/${i}/client && yarn semantic:build
-	cd /root/${i}/client && pm2 start pm2.json
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/prisma && docker-compose up -d
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/prisma && prisma deploy
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/prisma && yarn
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/prisma &&  pm2 start pm2.json
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/client && yarn
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/client && yarn semantic:build
+	cd /root/go/src/github.com/AndriyShepitsen/${i}/client && pm2 start pm2.json
 
 done
 

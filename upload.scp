@@ -1,1 +1,2 @@
 scp -i "/home/andriy/.ssh/id_rsa" /home/andriy/app/start-realsiter/start.sh  root@67.205.148.164:~/crontab
+scp -i "/home/andriy/.ssh/id_rsa" /home/andriy/app/start-realsiter/parse.sh  root@67.205.148.164:~/crontab
